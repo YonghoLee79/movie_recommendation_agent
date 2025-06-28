@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Recommender Bot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🎬 Movie Recommender Bot 🎥</h1>
+    <div class="chat-box">
+      {% for msg in messages %}
+        <div class="{{ msg.role }}">
+          <strong>{{ msg.role.capitalize() }}:</strong> {{ msg.content }}
+        </div>
+      {% endfor %}
+    </div>
+    <form method="post">
+      <input type="text" name="message" autofocus placeholder="What kind of movie do you want?">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>
